@@ -1,10 +1,14 @@
 <?php
   class TemplateClass
   {
-    static function views()
+    static function views($templateName)
     {   
-        RenderClass::renderTemplate('header');
-        RenderClass::renderTemplate('main');
-        RenderClass::renderTemplate('footer');
+        $htmlRender = "";
+        foreach ($templateName['template'] as $value) {
+          $htmlRender .= RenderClass::renderTemplate($value, $templateName['data']);
+        }
+        echo $htmlRender;
     }
   }
+
+

@@ -13,7 +13,16 @@
   <body>
     <main>
       <?php
-        TemplateClass::views();
+        TemplateClass::views([
+            'template' => [
+            'header',
+            'main',
+            'footer',
+            ],
+            'data' => [
+            'title' => 'ipsum dolor',
+            ],
+        ]);
       ?>
     </main>
   </body>

@@ -1,9 +1,12 @@
 <?php
     class RenderClass
     {
-        static function renderTemplate($templateName)
+        static function renderTemplate($templateName, $data)
         {
-            $htmlRender = file_get_contents("./template/$templateName.html");
-            echo $htmlRender;
+            $template = file_get_contents("./template/$templateName.html");
+           foreach ($data as $key => $value) {
+               $template = str_replace("%$key%", $value, $template);
+           }
+           return $template;
         }
     }
